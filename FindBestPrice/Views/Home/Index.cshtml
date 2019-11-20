@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+    <link href="~/Content/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @using (Html.BeginForm("AddPrice", "Home", new { PriceList = Json.Encode(ViewBag.PriceList), CostList = Json.Encode(ViewBag.CostList) }))
+    {
+        <div class="split left">
+            <div class="centered">
+                <table class="table table-dark">
+                    <tr>
+                        <td>
+                            <input type="text" name="price" placeholder="Price" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="cost" placeholder="Cost" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Add Price and Cost" />
+                        </td>
+                    </tr>
+
+                </table><br />
+                <p>@ViewBag.errorMessage</p>
+            </div>
+        </div>
+        if (ViewBag.stringPrices != null)
+        {
+            <div class="split right">
+                <div class="centered">
+
+                    <table class="table table-dark">
+                        <tr>
+                            <td>
+                                Price List:
+                            </td>
+                            <td>
+                                @ViewBag.stringPrices
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Cost List: </td>
+                            <td>
+                                @ViewBag.stringCosts
+                            </td>
+                        </tr>
+                        <tr><td></td><td></td></tr>
+                    </table>
+                    <button type="submit" class="btn btn-outline-success">Calculate Best Price</button><br />
+                    @Html.ActionLink("Refresh", "Index", "Home")
+
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="split colorOnly">
+                <div class="centered">
+                </div>
+            </div>
+        }
+    }
+</body>
+</html>
+
+
+

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "BestPrice";
+}
+
+<html>
+<head>
+    <title>Best Price</title>
+    <link href="~/Content/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="allPage">
+        <div class="centered">
+
+            @if (ViewBag.bestPrice != null)
+            {
+                <table class="table">
+                    <tr>
+                        <td>
+                            Price List:
+                        </td>
+                        <td>
+                           @ViewBag.stringPricesx
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Cost List:</td>
+                        <td>@ViewBag.stringCostsx</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h1>Best Price:</h1>
+                        </td>
+                        <td>
+                            <h1><strong>@ViewBag.bestPrice</strong></h1>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+
+</body>
+</html>
